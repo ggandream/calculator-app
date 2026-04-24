@@ -22,6 +22,8 @@
 
   --main-text: hsl(0, 100%, 100%);
   --key-text: hsl(221, 14%, 31%);
+  --white-text: hsl(0, 100%, 100%);
+  --equal-text: hsl(0, 100%, 100%);
 }
 
 [data-theme="theme-2"] {
@@ -31,17 +33,44 @@
   --keypad-background: hsl(0, 5%, 81%);
   --screen-background: hsl(0, 0%, 93%);
 
+  
+  --fkey-background: hsl(185, 42%, 37%);
+  --fkey-shadow: hsl(185, 58%, 25%);
 
-  --thumb-toggle: hsl(25, 98%, 40%);
-  --toggle-background: hsl(0, 5%, 81%);
+  --ekey-background: hsl(25, 98%, 40%);
+  --ekey-shadow: hsl(25, 99%, 27%);
+
+  --nkey-background: hsl(0, 0%, 90%);
+  --nkey-shadow: hsl(35, 11%, 61%);
+
   --main-text: hsl(60, 10%, 19%);
+  --key-text: hsl(60, 10%, 19%);
+  --white-text: hsl(0, 100%, 100%);
+  --equal-text: hsl(0, 100%, 100%);
 }
 
 [data-theme="theme-3"] {
   --main-background: hsl(268, 75%, 9%);
   --thumb-toggle: hsl(176, 100%, 44%);
   --toggle-background: hsl(268, 71%, 12%);
+  --keypad-background: hsl(268, 71%, 12%);
+  --screen-background: hsl(268, 71%, 12%);
+
+  
+  --fkey-background: hsl(281, 89%, 26%);
+  --fkey-shadow: hsl(285, 91%, 52%);
+
+  --ekey-background: hsl(176, 100%, 44%);
+  --ekey-shadow: hsl(177, 92%, 70%);
+
+  --nkey-background: hsl(268, 47%, 21%);
+  --nkey-shadow: hsl(290, 70%, 36%);
+
   --main-text: hsl(52, 100%, 62%);
+  --key-text: hsl(52, 100%, 62%);
+  --equal-text: hsl(198, 20%, 13%);
+  --white-text: hsl(0, 100%, 100%);
+
 }
 
 * {
@@ -87,28 +116,32 @@ button {
 .calc-btn-default {
   background-color: var(--nkey-background);
   padding: 20px;
-  font-size: 1.5rem;
+  font-size: 2rem;
   border-radius: 5px;
   border: 0px;
   border-bottom: 3px var(--nkey-shadow) solid;
+  color: var(--key-text);
 
   &.reset {
+    font-size: 1.5rem;
     background-color: var(--fkey-background);
     border-bottom: 3px var(--fkey-shadow) solid;
-    color: var(--main-text);
+    color: var(--white-text);
     grid-column: span 2;
   }
 
   &.del {
+    font-size: 1.5rem;
     background-color: var(--fkey-background);
     border-bottom: 3px var(--fkey-shadow) solid;
-    color: var(--main-text);
+    color: var(--white-text);
   }
 
   &.equal {
+    font-size: 1.5rem;
     background-color: var(--ekey-background);
     border-bottom: 3px var(--ekey-shadow) solid;
-    color: var(--main-text);
+    color: var(--equal-text);
     grid-column: span 2;
   }
 }
@@ -160,6 +193,8 @@ button {
 }
 
 .calc-range-span {
+  font-size: 0.7rem;
+  margin-bottom: 6px;
   display: flex;
   justify-content: space-evenly;
   color: var(--main-text);
