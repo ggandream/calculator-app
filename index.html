@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-theme="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <script src="app.js" defer></script>
+
+    <title>Calculator app</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main class="calc-container">
+      <header class="calc-header">
+        <h1>calc</h1>
+        <div class="calc-theme-range">
+          <label for="theme">THEME</label>
+          <div class="calc-range-wrapper">
+            <div class="calc-range-span">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+            <input
+              class="calc-input-range"
+              type="range"
+              name="theme"
+              id="theme"
+              min="1"
+              max="3"
+              step="1"
+              value="1"
+            />
+          </div>
+        </div>
+      </header>
+      <div class="calc-display"><span>399,981</span></div>
+      <div class="calc-keyboard">
+        <button class="calc-btn-default digit">7</button>
+        <button class="calc-btn-default digit">8</button>
+        <button class="calc-btn-default digit">9</button>
+        <button class="calc-btn-default del">DEL</button>
+        <button class="calc-btn-default digit">4</button>
+        <button class="calc-btn-default digit">5</button>
+        <button class="calc-btn-default digit">6</button>
+        <button class="calc-btn-default operator">+</button>
+        <button class="calc-btn-default digit">1</button>
+        <button class="calc-btn-default digit">2</button>
+        <button class="calc-btn-default digit">3</button>
+        <button class="calc-btn-default operator">-</button>
+        <button class="calc-btn-default digit">.</button>
+        <button class="calc-btn-default digit">0</button>
+        <button class="calc-btn-default operator">/</button>
+        <button class="calc-btn-default operator">X</button>
+        <button class="calc-btn-default reset">RESET</button>
+        <button class="calc-btn-default equal">=</button>
+      </div>
+    </main>
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/ggandream">ggandream</a>.
+    </footer>
+  </body>
+</html>
