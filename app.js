@@ -1,18 +1,15 @@
-let digits = document.querySelectorAll(".calc-btn-default.digit");
-let screen = document.querySelector(".calc-display > span");
-let operators = document.querySelectorAll(".calc-btn-default.operator");
-let reset = document.querySelector(".calc-btn-default.reset");
-let equal = document.querySelector(".calc-btn-default.equal");
-let del = document.querySelector(".calc-btn-default.del");
+const digits = document.querySelectorAll(".calc-btn-default.digit");
+const screen = document.querySelector(".calc-display > span");
+const operators = document.querySelectorAll(".calc-btn-default.operator");
+const reset = document.querySelector(".calc-btn-default.reset");
+const equal = document.querySelector(".calc-btn-default.equal");
+const del = document.querySelector(".calc-btn-default.del");
 const inputRange = document.querySelector(".calc-input-range");
 const html = document.querySelector("html");
 
-console.log("Hola Mundo");
-
-let numeroCompleto1 = null;
-let numero1 = null;
-let numero2 = null;
-let resultado;
+let firstEntry = null;
+let secondEntry = null;
+let result;
 let firstStep = true;
 let currentOperator = null;
 let consecutiveEqual = false;
@@ -21,46 +18,39 @@ screen.textContent = 0;
 
 function clear() {
   screen.textContent = 0;
-  numero1 = null;
-  numero2 = null;
-  resultado = null;
+  firstEntry = null;
+  secondEntry = null;
+  result = null;
   currentOperator = null;
   firstStep = true;
 }
 
 digits.forEach(function (digit) {
   digit.addEventListener("click", function () {
-    console.log("afuera del if", {
-      consecutiveEqual,
-      numero1,
-      numero2,
-      resultado,
-    });
 
     if (consecutiveEqual) {
-      console.log({ consecutiveEqual, numero1, numero2, resultado });
-      numero1 = null;
-      numero2 = null;
-      resultado = null;
+      firstEntry = null;
+      secondEntry = null;
+      result = null;
       consecutiveEqual = false;
       screen.textContent = 0;
       firstStep = true;
     }
 
     if (firstStep) {
-      numero1 =
-        numero1 == null
+      firstEntry =
+        firstEntry === null
           ? Number(digit.textContent)
-          : numero1 + digit.textContent;
+          : firstEntry + digit.textContent;
 
-      screen.textContent = numero1;
+      screen.textContent = firstEntry;
     } else {
-      numero2 =
-        numero2 == null
+      secondEntry =
+        secondEntry === null
           ? Number(digit.textContent)
-          : numero2 + digit.textContent;
+          : secondEntry + digit.textContent;
 
-      screen.textContent = numero2;
+      screen.textContent = secondEntry;
     }
   });
 });
@@ -75,20 +65,19 @@ operators.forEach(function (operator) {
 equal.addEventListener("click", function () {
   consecutiveEqual = true;
   if (currentOperator == "+") {
-    resultado = Number(numero1) + Number(numero2);
+    result = Number(firstEntry) + Number(secondEntry);
   } else if (currentOperator == "/") {
-    resultado = Number(numero1) / Number(numero2);
+    result = Number(firstEntry) / Number(secondEntry);
   } else if (currentOperator == "*") {
-    resultado = Number(numero1) * Number(numero2);
+    result = Number(firstEntry) * Number(secondEntry);
   } else if (currentOperator == "-") {
-    resultado = Number(numero1) - Number(numero2);
+    result = Number(firstEntry) - Number(secondEntry);
   }
 
-  screen.textContent = resultado;
-  console.log(resultado);
+  screen.textContent = result;
 
-  if (resultado != null && consecutiveEqual) {
-    numero1 = resultado;
+  if (result != null && consecutiveEqual) {
+    firstEntry = result;
     firstStep = true;
   } else {
     clear();
@@ -111,15 +100,15 @@ del.addEventListener("click", function () {
 
     if (firstStep) {
       if (screen.textContent == 0) {
-        numero1 = null;
+        firstEntry = null;
       } else {
-        numero1 = screen.textContent;
+        firstEntry = screen.textContent;
       }
     } else {
       if (screen.textContent == 0) {
-        numero2 = null;
+        secondEntry = null;
       } else {
-        numero2 = screen.textContent;
+        secondEntry = screen.textContent;
       }
     }
   }
@@ -127,11 +116,7 @@ del.addEventListener("click", function () {
 
 inputRange.addEventListener("input", (event) => {
   let value = null;
-
   value = event.target.value;
-
-  console.log(`inputRange: ${value}`);
-
   if (value == 2) {
     html.setAttribute("data-theme", "theme-2");
   } else if (value == 3) {
