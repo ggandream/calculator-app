@@ -68,7 +68,7 @@ equal.addEventListener("click", function () {
     result = Number(firstEntry) + Number(secondEntry);
   } else if (currentOperator == "/") {
     result = Number(firstEntry) / Number(secondEntry);
-  } else if (currentOperator == "*") {
+  } else if (currentOperator == "x") {
     result = Number(firstEntry) * Number(secondEntry);
   } else if (currentOperator == "-") {
     result = Number(firstEntry) - Number(secondEntry);
