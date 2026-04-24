@@ -40,14 +40,14 @@ digits.forEach(function (digit) {
     if (firstStep) {
       firstEntry =
         firstEntry === null
-          ? Number(digit.textContent)
+          ? digit.textContent
           : firstEntry + digit.textContent;
 
       screen.textContent = firstEntry;
     } else {
       secondEntry =
         secondEntry === null
-          ? Number(digit.textContent)
+          ? digit.textContent
           : secondEntry + digit.textContent;
 
       screen.textContent = secondEntry;
@@ -62,7 +62,7 @@ operators.forEach(function (operator) {
   });
 });
 
-equal.addEventListener("click", function () {
+equal?.addEventListener("click", function () {
   consecutiveEqual = true;
   if (currentOperator == "+") {
     result = Number(firstEntry) + Number(secondEntry);
@@ -84,11 +84,11 @@ equal.addEventListener("click", function () {
   }
 });
 
-reset.addEventListener("click", function () {
+reset?.addEventListener("click", function () {
   clear();
 });
 
-del.addEventListener("click", function () {
+del?.addEventListener("click", function () {
   let display = screen.textContent;
 
   if (!consecutiveEqual) {
@@ -114,7 +114,7 @@ del.addEventListener("click", function () {
   }
 });
 
-inputRange.addEventListener("input", (event) => {
+inputRange?.addEventListener("input", (event) => {
   let value = null;
   value = event.target.value;
   if (value == 2) {
